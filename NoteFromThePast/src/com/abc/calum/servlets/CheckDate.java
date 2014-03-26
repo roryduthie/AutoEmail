@@ -22,11 +22,9 @@ import com.datastax.driver.core.PreparedStatement;
 import com.datastax.driver.core.ResultSet;
 import com.datastax.driver.core.Row;
 import com.datastax.driver.core.Session;
-import com.sun.mail.iap.Response;
 
 import java.util.*;
 import java.text.*;
-import java.io.*;
 
 import javax.mail.*;
 import javax.mail.internet.MimeMessage;
@@ -136,11 +134,11 @@ public class CheckDate extends HttpServlet {
 			message.setRecipients(Message.RecipientType.TO,
 					InternetAddress.parse(to));
 			message.setSubject(subject);
-			message.setText(mymessage + "\n\n Message Sent from A Note From The Past by user: " + email_from);
+			message.setText(mymessage + "\n\n \"A Note From The Past\" by user: " + email_from);
  
 			Transport.send(message);
  
-			System.out.println("Done");
+			System.out.println("Message Sent");
  
 		} catch (MessagingException e) {
 			throw new RuntimeException(e);
